@@ -55,9 +55,9 @@ class FriendlyMessageAdapter(
         fun bind(item: FriendlyMessage) {
             if(item.uid == Firebase.auth.uid){
                 binding.myMessageTextView.text = item.text
-                binding.messageTextView.visibility = INVISIBLE
-                binding.messengerTextView.height = 0
-                binding.messengerImageView.visibility = INVISIBLE
+                //binding.messageTextView.visibility = INVISIBLE
+                //binding.messengerTextView.height = 0
+                //binding.messengerImageView.visibility = INVISIBLE
             } else{
                 binding.messageTextView.text = item.text
                 binding.messengerTextView.text = if (item.name == null) ANONYMOUS else item.name
@@ -66,7 +66,7 @@ class FriendlyMessageAdapter(
                 } else {
                     binding.messengerImageView.setImageResource(R.drawable.ic_account_circle_black_36dp)
                 }
-                binding.myMessageTextView.visibility = INVISIBLE
+                //binding.myMessageTextView.visibility = INVISIBLE
             }
             setTextColor(item.name, binding.messageTextView)
 
