@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "4360869583",
+    "firebase_url": "https://willow-f81a7-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "willow-f81a7",
+    "storage_bucket": "willow-f81a7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:4360869583:android:ce2878cccd24b779f749ba",
+        "android_client_info": {
+          "package_name": "com.izzaz.willow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "4360869583-2lajbqsosri9chppg0l97b4s314cjdcq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.izzaz.willow",
+            "certificate_hash": "4b0022fcdb3976db7b1fad2c8777a50e549e9e9b"
+          }
+        },
+        {
+          "client_id": "4360869583-96n5r0rp71e6h9d04q59gesc6h6h4b8q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7szyfAhYGGsUZDUr9UQuRuccMZmJnA04"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "4360869583-96n5r0rp71e6h9d04q59gesc6h6h4b8q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
