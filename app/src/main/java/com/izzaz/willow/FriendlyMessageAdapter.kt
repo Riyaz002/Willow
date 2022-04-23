@@ -53,12 +53,14 @@ class FriendlyMessageAdapter(
 
     inner class MessageViewHolder(private val binding: MessageBinding) : ViewHolder(binding.root) {
         fun bind(item: FriendlyMessage) {
+            makeEverythingVisible(binding)
             if(item.uid == Firebase.auth.uid){
                 binding.myMessageTextView.text = item.text
-                //binding.messageTextView.visibility = INVISIBLE
-                //binding.messengerTextView.height = 0
-                //binding.messengerImageView.visibility = INVISIBLE
+                binding.messageTextView.visibility = INVISIBLE
+                binding.messengerTextView.visibility = INVISIBLE
+                binding.messengerImageView.visibility = INVISIBLE
             } else{
+                binding.myMessageTextView.visibility = INVISIBLE
                 binding.messageTextView.text = item.text
                 binding.messengerTextView.text = if (item.name == null) ANONYMOUS else item.name
                 if (item.photoUrl != null) {
@@ -66,16 +68,23 @@ class FriendlyMessageAdapter(
                 } else {
                     binding.messengerImageView.setImageResource(R.drawable.ic_account_circle_black_36dp)
                 }
-                //binding.myMessageTextView.visibility = INVISIBLE
+                setTextColor(item.name, binding.messageTextView)
             }
-            setTextColor(item.name, binding.messageTextView)
+//            setTextColor(item.name, binding.messageTextView)
+//
+//            binding.messengerTextView.text = if (item.name == null) ANONYMOUS else item.name
+//            if (item.photoUrl != null) {
+//                loadImageIntoView(binding.messengerImageView, item.photoUrl!!)
+//            } else {
+//                binding.messengerImageView.setImageResource(R.drawable.ic_account_circle_black_36dp)
+//            }
+        }
 
-            binding.messengerTextView.text = if (item.name == null) ANONYMOUS else item.name
-            if (item.photoUrl != null) {
-                loadImageIntoView(binding.messengerImageView, item.photoUrl!!)
-            } else {
-                binding.messengerImageView.setImageResource(R.drawable.ic_account_circle_black_36dp)
-            }
+        private fun makeEverythingVisible(binding: MessageBinding) {
+            binding.messageTextView.visibility = VISIBLE
+            binding.messengerImageView.visibility = VISIBLE
+            binding.messengerTextView.visibility = VISIBLE
+            binding.myMessageTextView.visibility = VISIBLE
         }
 
         private fun setTextColor(userName: String?, textView: TextView) {
@@ -92,13 +101,15 @@ class FriendlyMessageAdapter(
     inner class ImageMessageViewHolder(private val binding: ImageMessageBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: FriendlyMessage) {
+            makeEverythingVisible(binding)
             if(Firebase.auth.uid == item.uid){
 
                 loadImageIntoView(binding.myMessageImageView, item.imageUrl!!)
 
-                binding.messengerTextView.height = 0
-
+                //binding.messengerTextView.visibility = INVISIBLE
                 binding.messengerImageView.visibility = INVISIBLE
+                //binding.messengerTextView.visibility = INVISIBLE
+                binding.messageImageView.visibility = INVISIBLE
             } else{
                 loadImageIntoView(binding.messageImageView, item.imageUrl!!)
 
@@ -111,6 +122,13 @@ class FriendlyMessageAdapter(
                 }
             }
 
+        }
+
+        private fun makeEverythingVisible(binding: ImageMessageBinding) {
+            binding.messageImageView.visibility = VISIBLE
+            binding.messengerImageView.visibility = VISIBLE
+            binding.messengerTextView.visibility = VISIBLE
+            binding.myMessageImageView.visibility = VISIBLE
         }
     }
 

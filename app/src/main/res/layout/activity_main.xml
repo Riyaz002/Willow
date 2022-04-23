@@ -73,6 +73,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/linearLayout"
+        android:layout_below="@id/appbar_layout"
         android:background="@android:color/white"
         android:paddingHorizontal="16dp" />
 </RelativeLayout>
